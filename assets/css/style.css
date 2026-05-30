@@ -1,0 +1,122 @@
+/* Tailwind CSS CDN с пользовательскими стилями */
+@import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+
+/* CSS переменные из оригинального проекта */
+:root {
+    --font-size: 16px;
+    --background: #ffffff;
+    --foreground: #1a1a1a;
+    --primary: #030213;
+    --primary-foreground: #ffffff;
+    --secondary: #f3f4f6;
+    --destructive: #d4183d;
+    --border: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: var(--font-size);
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Анимации */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert-slide {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Стили для календаря */
+.calendar-slot-free {
+    background-color: #f0fdf4;
+    border-color: #bbf7d0;
+}
+
+.calendar-slot-busy {
+    background-color: #fef2f2;
+    border-color: #fecaca;
+}
+
+/* Стили для статусов */
+.status-badge-confirmed {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.status-badge-pending {
+    background-color: #ffedd5;
+    color: #9a3412;
+}
+
+.status-badge-completed {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.status-badge-cancelled {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+/* Дополнительные стили поверх Tailwind */
+.btn-primary {
+    @apply bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition;
+}
+
+.btn-secondary {
+    @apply bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition;
+}
+
+.status-badge {
+    @apply inline-block px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.status-confirmed {
+    @apply bg-green-100 text-green-800;
+}
+
+.status-pending {
+    @apply bg-yellow-100 text-yellow-800;
+}
+
+.status-cancelled {
+    @apply bg-red-100 text-red-800;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.alert {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Календарь */
+.calendar-slot {
+    @apply p-3 rounded-lg border transition cursor-pointer;
+}
+
+.calendar-slot-free {
+    @apply bg-green-50 border-green-200 hover:bg-green-100;
+}
+
+.calendar-slot-busy {
+    @apply bg-red-50 border-red-200 cursor-not-allowed opacity-60;
+}
